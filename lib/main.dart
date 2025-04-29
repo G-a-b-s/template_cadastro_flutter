@@ -107,38 +107,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     maxLength: 16,
                   ),
                   SizedBox(height: 16.0),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text("Gênero:"),
-                  ),
-                  SizedBox(height: 10.0),
                   Row(
                     children: [
-                      Text("Masculino"),
-                      Radio(
-                        value: "m",
-                        groupValue: _selectGender,
-                        onChanged: (context) {
-                          setState(() {
-                            _selectGender = "m";
-                          });
-                        },
-                      ),
-                      Text("Feminino"),
-                      Radio(
-                        value: "f",
-                        groupValue: _selectGender,
-                        onChanged: (context) {
-                          setState(() {
-                            _selectGender = "f";
-                          });
-                        },
+                      Text("Gênero: "),
+                      Row(
+                        children: [
+                          Text("Masculino"),
+                          Radio(
+                            value: "m",
+                            groupValue: _selectGender,
+                            onChanged: (context) {
+                              setState(() {
+                                _selectGender = "m";
+                              });
+                            },
+                          ),
+                          Text("Feminino"),
+                          Radio(
+                            value: "f",
+                            groupValue: _selectGender,
+                            onChanged: (context) {
+                              setState(() {
+                                _selectGender = "f";
+                              });
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
                   SizedBox(height: 16.0),
                   Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: MediaQuery.of(context).size.width < 600 ? Alignment.center : Alignment.centerLeft,
                     child: Text("Notificações:"),
                   ),
                   SizedBox(height: 10.0),
@@ -186,7 +186,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ElevatedButton(
                     onPressed: () {
                     },
-                    child: Text('Cadastrar'),
+                    child: Text('Cadastrar', style: TextStyle(fontSize:18)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                      foregroundColor: Colors.deepPurple,
+                    ),
                   )
                 ],
               ),
